@@ -1,0 +1,2 @@
+here we have coded this multi user to do list using python and json files.
+we can add task , mark the task completed , add user , view tasks of users , and exit if we want to stop it , and the code then finally saves the changes to the json file
