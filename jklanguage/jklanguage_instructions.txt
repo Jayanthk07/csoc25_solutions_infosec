@@ -1,0 +1,4 @@
+we have to run the file by using this command in the terminal----------   python3 csoc.py sample.txt
+
+as we have our jklanguage program in the sample.tx file , we need to run it as an argument 1 for the csoc.py 
+here i used python to create my programming language
